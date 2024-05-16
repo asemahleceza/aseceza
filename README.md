@@ -25,6 +25,4 @@
 
 📫 If you'd like to discuss infrastructure, automation, or anything tech-related, feel free to reach out to me! You can connect with me here on GitHub or find me on [LinkedIn](link here) for more in-depth conversations.
 
-###My Projects
-
-- 
+### My Projects

@@ -10,12 +10,12 @@
 
 💻 I have experience working with a variety of tools and technologies, including:
 
-- **Cloud Platforms**: AWS, Azure, Google Cloud
-- **Configuration Management**: Terraform, Ansible
+- **Cloud Platforms**: AWS, Google Cloud
+- **Configuration Management**: Ansible
 - **Containerization and Orchestration**: Docker, Kubernetes
 - **Continuous Integration / Continuous Deployment (CI/CD)**: Jenkins, GitLab CI/CD, GitHub Actions
-- **Monitoring and Logging**: Prometheus, Grafana, ELK Stack
-- **Scripting and Programming Languages**: Python, Bash, JavaScript
+- **Monitoring and Logging**: Prometheus, Grafana
+- **Scripting and Programming Languages**: Bash, Java, C#
 
 ### Why I'm Here
 

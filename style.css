@@ -2,270 +2,271 @@
    VARIABLES
 ------------------------------------ */
 :root {
-  --bg: #0f111a;
-  --bg-alt: #1a1c25;
-  --text: #d8dee9;
-  --muted: #a5abb6;
-  --accent-green: #8fbc8f;
-  --accent-cyan: #88c0d0;
+    --bg: #0f111a;
+    --bg-alt: #1a1c25;
+    --text: #d8dee9;
+    --muted: #a5abb6;
+    --accent-green: #8fbc8f;
+    --accent-cyan: #88c0d0;
 }
 
 body.light-mode {
-  --bg: #f9fafa;
-  --bg-alt: #e8ecef;
-  --text: #222;
-  --muted: #555;
-  --accent-green: #2e8b57;
-  --accent-cyan: #4682b4;
+    --bg: #f9fafa;
+    --bg-alt: #e8ecef;
+    --text: #222;
+    --muted: #555;
+    --accent-green: #2e8b57;
+    --accent-cyan: #4682b4;
 }
 
 /* ------------------------------------
    BASE
 ------------------------------------ */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Fira Code", monospace;
-  line-height: 1.7;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Fira Code", monospace;
+    line-height: 1.7;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* ------------------------------------
    NAVBAR
 ------------------------------------ */
 header {
-  background: var(--bg-alt);
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--accent-cyan);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    background: var(--bg-alt);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--accent-cyan);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: var(--accent-green);
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent-green);
 }
 
 .nav-links {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: var(--accent-cyan);
-  transition: 0.2s;
+    text-decoration: none;
+    color: var(--accent-cyan);
+    transition: 0.2s;
 }
 
 .nav-links a:hover {
-  color: var(--accent-green);
+    color: var(--accent-green);
 }
 
 #theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: var(--accent-cyan);
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--accent-cyan);
 }
 
 /* ------------------------------------
    HERO
 ------------------------------------ */
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 4rem 2rem;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+    text-align: center;
 }
 
 .dp-container {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .dp {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 3px solid var(--accent-cyan);
-  object-fit: cover;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-cyan);
+    object-fit: cover;
 }
 
 .hero h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: var(--accent-green);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-green);
 }
 
 .hero span {
-  color: var(--accent-cyan);
+    color: var(--accent-cyan);
 }
 
 .hero p {
-  color: var(--muted);
-  margin-bottom: 1.5rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
 }
 
 .btn {
-  background: var(--accent-cyan);
-  color: var(--bg);
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.2s;
+    background: var(--accent-cyan);
+    color: var(--bg);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
 .btn:hover {
-  background: var(--accent-green);
-  color: var(--bg);
+    background: var(--accent-green);
+    color: var(--bg);
 }
 
 /* ------------------------------------
    SECTIONS
 ------------------------------------ */
 section {
-  padding: 3rem 2rem;
-  max-width: 900px;
-  margin: auto;
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: auto;
 }
 
 section h2 {
-  color: var(--accent-cyan);
-  margin-bottom: 1.2rem;
-  border-bottom: 1px dashed var(--accent-green);
-  display: inline-block;
-  padding-bottom: 0.3rem;
+    color: var(--accent-cyan);
+    margin-bottom: 1.2rem;
+    border-bottom: 1px dashed var(--accent-green);
+    display: inline-block;
+    padding-bottom: 0.3rem;
 }
 
 .skills-list {
-  list-style: none;
-  margin-top: 1rem;
+    list-style: none;
+    margin-top: 1rem;
 }
 
 .skills-list li {
-  background: var(--bg-alt);
-  margin: 0.5rem 0;
-  padding: 0.6rem 1rem;
-  border-left: 3px solid var(--accent-cyan);
-  border-radius: 2px;
+    background: var(--bg-alt);
+    margin: 0.5rem 0;
+    padding: 0.6rem 1rem;
+    border-left: 3px solid var(--accent-cyan);
+    border-radius: 2px;
 }
 
 /* ------------------------------------
    PROJECTS
 ------------------------------------ */
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
 }
 
 .project-card {
-  background: var(--bg-alt);
-  padding: 1.2rem;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: 0.2s;
+    background: var(--bg-alt);
+    padding: 1.2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.2s;
 }
 
 .project-card h3 {
-  color: var(--accent-green);
-  margin-bottom: 0.8rem;
+    color: var(--accent-green);
+    margin-bottom: 0.8rem;
 }
 
 .project-card:hover {
-  border: 1px solid var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
 }
 
 /* ------------------------------------
    CONTACT + FOOTER
 ------------------------------------ */
 .contact-links {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 footer {
-  background: var(--bg-alt);
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.85rem;
-  color: var(--muted);
-  border-top: 1px solid var(--accent-cyan);
+    background: var(--bg-alt);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-top: 1px solid var(--accent-cyan);
 }
+
 /* ------------------------------------
    PROJECT DETAIL PAGE
 ------------------------------------ */
 .project-detail {
-  max-width: 900px;
-  margin: auto;
-  padding: 3rem 2rem;
+    max-width: 900px;
+    margin: auto;
+    padding: 3rem 2rem;
 }
 
 .project-detail h1 {
-  font-size: 2rem;
-  color: var(--accent-green);
-  margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
 }
 
 .project-detail .subtitle {
-  font-size: 1.1rem;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
 }
 
 .project-meta {
-  background: var(--bg-alt);
-  padding: 1rem;
-  border-left: 3px solid var(--accent-cyan);
-  margin-bottom: 2rem;
-  border-radius: 4px;
-  font-size: 0.95rem;
+    background: var(--bg-alt);
+    padding: 1rem;
+    border-left: 3px solid var(--accent-cyan);
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
 }
 
 .project-img {
-  margin-bottom: 2rem;
-  text-align: center;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .project-img img {
-  max-width: 100%;
-  border-radius: 6px;
-  border: 1px solid var(--accent-cyan);
+    max-width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--accent-cyan);
 }
 
 .project-description {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .project-description p {
-  color: var(--text);
+    color: var(--text);
 }
 
 .project-links {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }

@@ -27,7 +27,7 @@
             <img src="ase-display-picture.jpeg" alt="Ase Display Picture" class="dp">
         </div>
         <div class="hero-content">
-            <h2>👋 Hi, I’m <span>Ase</span></h2>
+            <h2>Hi, I’m <span>Ase</span></h2>
             <p class="tagline">Building reliable systems with cloud and automation.</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
@@ -59,23 +59,19 @@
         <h2>Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <h3>🚀 My Homelab setup</h3>
-                <p>Something cool that shows my DevOps & infra automation skills.</p>
+                <h3>My Homelab setup</h3>
+                <p>A minimal homelab setup for learning and experimentation</p>
+                <a href="homelab-project.html" class="btn">View Project</a>
             </div>
             <div class="project-card">
-                <h3>⚡ Hybrid Portfolio Hosting</h3>
-                <p>Another project focused on cloud engineering & scaling systems.</p>
-          <a href="project-hybrid-website-hosting.html" class="btn">View Project</a>
+                <h3>Hybrid Portfolio Hosting</h3>
+                <p>A small prjoect focused on web-hosting, cloud engineering, reliability and scaling systems </p>
+                <a href="project-hybrid-website-hosting.html" class="btn">View Project</a>
             </div>
             <div class="project-card">
                 <h3>Server Monitoring </h3>
                 <p>Web hosted dashboard to check on the health of the Server.</p>
                 <a href="project-health-dashboard.html" class="btn">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>🚀 Project One</h3>
-                <p>Short description here.</p>
-                <a href="project1.html" class="btn">View Project</a>
             </div>
         </div>
     </section>
@@ -85,9 +81,46 @@
         <p>Reach out for collaboration or discussions on infrastructure and automation.</p>
         <div class="contact-links">
             <a href="https://linkedin.com/in/ase-ceza" class="btn">LinkedIn</a>
-            <a href="mailto:ase@aseintech.com" class="btn">Email</a>
             <a href="https://github.com/asemahleceza" class="btn">GitHub</a>
         </div>
+    </section>
+    <section id="email">
+        <h2>Send an email</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+        <div id="status"></div>
+
+        <script>
+            const form = document.getElementById('contactForm');
+            const status = document.getElementById('status');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                try {
+                    const res = await fetch('https://4d2ilhlzy0.execute-api.us-east-1.amazonaws.com/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await res.json();
+                    status.textContent = result.message || 'Sent!';
+                    form.reset();
+                } catch (err) {
+                    status.textContent = 'Error sending message.';
+                    console.error(err);
+                }
+            });
+        </script>
     </section>
 
     <footer>

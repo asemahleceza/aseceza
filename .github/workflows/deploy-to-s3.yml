@@ -26,15 +26,11 @@ jobs:
 
             - name: Sync files to S3
               run: |
-                  CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
-                  echo "Files to upload:"
-                  echo "$CHANGED_FILES"for file in $CHANGED_FILES; do
-                  for file in $CHANGED_FILES; do
-                      if [ -f "$file" ]; then
-                          echo "Uploading: $file"
-                          aws s3 cp "$file" "s3://${{ secrets.S3_BUCKET_NAME }}/$file"
-                      fi
-                  done
+                  aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} \
+                    --exclude ".git/*" \
+                    --exclude ".github/*" \
+                    --exclude "*.md" \
+                    --delete
 
             - name: Invalidate CloudFront
               if: true

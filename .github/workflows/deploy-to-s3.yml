@@ -33,8 +33,8 @@ jobs:
                     --delete
 
             - name: Invalidate CloudFront
-              if: false # TODO: set true
+              if: true
               run: |
                   aws cloudfront create-invalidation \
-                    --distribution-id YOUR-DISTRIBUTION-ID \
+                    --distribution-id ${{ secrets.CDN_DISTRIBUTION_ID}} \
                     --paths "/*"

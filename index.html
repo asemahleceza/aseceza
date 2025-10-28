@@ -92,9 +92,7 @@
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <textarea name="message" placeholder="Your Message" required></textarea>
-            <button class="g-recaptcha" data-sitekey="6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V" data-action='submit'>
-                Send
-            </button>
+            <button type="submit">Send</button>
         </form>
 
         <div id="status"></div>
@@ -108,30 +106,32 @@
                 status.textContent = 'Submitting...';
 
                 try {
-                    await grecaptcha.enterprise.ready(async () => {
-                        const token = await grecaptcha.enterprise.execute('6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V', { action: 'contact_form' });
+                    const token = await grecaptcha.enterprise.execute(
+                        '6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V',
+                        { action: 'contact_form' }
+                    );
 
-                        const formData = new FormData(form);
-                        const data = {
-                            ...Object.fromEntries(formData.entries()),
-                            recaptchaToken: token,   
-                            action: 'contact_form'
-                        };
+                    const formData = new FormData(form);
+                    const data = {
+                        ...Object.fromEntries(formData.entries()),
+                        recaptchaToken: token,
+                        action: 'contact_form'
+                    };
 
-                        const res = await fetch('https://4d2ilhlzy0.execute-api.us-east-1.amazonaws.com/contact', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(data)
-                        });
-
-                        const result = await res.json();
-                        if (res.ok) {
-                            status.textContent = result.message || 'Sent!';
-                            form.reset();
-                        } else {
-                            status.textContent = result.error || 'reCAPTCHA verification failed.';
-                        }
+                    const res = await fetch('https://4d2ilhlzy0.execute-api.us-east-1.amazonaws.com/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
                     });
+
+                    const result = await res.json();
+
+                    if (res.ok) {
+                        status.textContent = result.message || 'Message sent successfully!';
+                        form.reset();
+                    } else {
+                        status.textContent = result.error || 'reCAPTCHA verification failed.';
+                    }
                 } catch (err) {
                     console.error('Error submitting form:', err);
                     status.textContent = 'Error sending message.';
@@ -139,6 +139,7 @@
             });
         </script>
     </section>
+
 
     <footer>
         <p>© 2025 Aseintech</p>

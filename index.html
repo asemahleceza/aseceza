@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aseintech | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -90,6 +91,7 @@
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <textarea name="message" placeholder="Your Message" required></textarea>
+            <div class="g-recaptcha" data-sitekey="6LdTdvUrAAAAAOHliZbSMrztU5sLhflRCPuLL0qZ"></div>
             <button type="submit">Send</button>
         </form>
 
@@ -102,6 +104,13 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
+                const captchaRes = grecaptcha.getResponse();
+
+                if (!captchaRes) {
+                    alert('Please complete the CAPTCHA');
+                    return;
+                }
+
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
 
@@ -109,12 +118,15 @@
                     const res = await fetch('https://4d2ilhlzy0.execute-api.us-east-1.amazonaws.com/contact', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
+                        body: JSON.stringify(data),
+                        captchaToken: captchaRes
+
                     });
 
                     const result = await res.json();
                     status.textContent = result.message || 'Sent!';
                     form.reset();
+                    grecaptcha.reset();
                 } catch (err) {
                     status.textContent = 'Error sending message.';
                     console.error(err);

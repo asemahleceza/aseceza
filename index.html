@@ -101,17 +101,13 @@
         <div id="status"></div>
 
         <script>
-            function onSubmit(token) {
-                document.getElementById("contactForm").submit();
-            }
-
             const form = document.getElementById('contactForm');
             const status = document.getElementById('status');
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
-                const captchaRes = grecaptcha.getResponse();
+                const captchaRes = grecaptcha.enterprise.getResponse();
 
                 if (!captchaRes) {
                     alert('Please complete the CAPTCHA');

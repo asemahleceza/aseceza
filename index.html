@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aseintech | Portfolio</title>
+    <script>
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light') document.documentElement.classList.add('light-mode');
+    </script>
     <link rel="stylesheet" href="style.css">
+    <script src="/js/theme.js" defer></script>
     <script
         src="https://www.google.com/recaptcha/enterprise.js?render=6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V"></script>
 </head>
@@ -145,13 +150,6 @@
         <p>© 2025 Aseintech</p>
     </footer>
 
-    <script>
-        const toggle = document.getElementById('theme-toggle');
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            toggle.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
-        });
-    </script>
 </body>
 
 </html>

@@ -71,6 +71,8 @@ Secure contact form handler...
 
 - CloudFront caching to lower S3 data transfer
 
+- Google racaptcha to protect from bots/non-human users
+
 ## About Me
 
 I’m a DevOps & Cloud Engineer passionate about automation, scalable architectures, and developer experience.

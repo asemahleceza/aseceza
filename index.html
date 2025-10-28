@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aseintech | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+    <script
+        src="https://www.google.com/recaptcha/enterprise.js?render=6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V"></script>
 </head>
 
 <body>
@@ -91,13 +92,19 @@
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <textarea name="message" placeholder="Your Message" required></textarea>
-            <div class="g-recaptcha" data-sitekey="6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V"></div>
-            <button type="submit">Send</button>
+            <button class="g-recaptcha" data-sitekey="6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V" data-callback='onSubmit'
+                data-action='submit'>
+                Send
+            </button>
         </form>
 
         <div id="status"></div>
 
         <script>
+            function onSubmit(token) {
+                document.getElementById("contactForm").submit();
+            }
+
             const form = document.getElementById('contactForm');
             const status = document.getElementById('status');
 

@@ -72,13 +72,8 @@
             </div>
             <div class="project-card">
                 <h3>Static website portfolio</h3>
-                <p>A small prjoect focused on web-hosting, cloud engineering, reliability and scaling systems </p>
-                <a href="static-webisite-project.html" class="btn">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>Server Monitoring </h3>
-                <p>Web hosted dashboard to check on the health of the Server.</p>
-                <a href="project-health-dashboard.html" class="btn">View Project</a>
+                <p>A small project focused on web-hosting, cloud engineering, reliability and scaling systems </p>
+                <a href="static-website-project.html" class="btn">View Project</a>
             </div>
         </div>
     </section>
@@ -131,11 +126,14 @@
 
                     const result = await res.json();
 
+                    contactFormFailureResponse = "Something went wrong while sending your message" +
+                        "\n Please try again later or reach out via LinkedIn instead.";
+
                     if (res.ok) {
                         status.textContent = result.message || 'Message sent successfully!';
                         form.reset();
                     } else {
-                        status.textContent = result.error || 'reCAPTCHA verification failed.';
+                        status.textContent = result.error || contactFormFailureResponse;
                     }
                 } catch (err) {
                     console.error('Error submitting form:', err);

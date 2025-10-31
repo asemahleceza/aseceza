@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project | Aseintech</title>
+    <script>
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light') document.documentElement.classList.add('light-mode');
+    </script>
     <link rel="stylesheet" href="style.css">
+    <script src="/js/theme.js" defer></script>
+
 </head>
 
 <body>
@@ -23,7 +29,7 @@
     </header>
 
     <main class="project-detail">
-        <h1>🚀 Project Title</h1>
+        <h1>Project Title</h1>
         <p class="subtitle">A short one-liner that sums up the project’s purpose.</p>
 
         <div class="project-meta">
@@ -53,7 +59,7 @@
     </main>
 
     <footer>
-        <p>© 2025 Aseintech | Minimal. Efficient. Badass.</p>
+        <p>© 2025 Aseintech</p>
     </footer>
 
     <script>

@@ -11,8 +11,7 @@
     </script>
     <link rel="stylesheet" href="style.css">
     <script src="/js/theme.js" defer></script>
-    <script
-        src="https://www.google.com/recaptcha/enterprise.js?render=6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -92,6 +91,7 @@
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <textarea name="message" placeholder="Your Message" required></textarea>
+            <div class="g-recaptcha" data-sitekey="6LfH_gEsAAAAAEuJuejUyR6NGnVIZKY7a7shJNKU"></div>
             <button type="submit">Send</button>
         </form>
 
@@ -106,16 +106,15 @@
                 status.textContent = 'Submitting...';
 
                 try {
-                    const token = await grecaptcha.enterprise.execute(
-                        '6Lc8O_krAAAAAO9ZARko-2ud9Gz680TIglWNNy3V',
-                        { action: 'contact_form' }
-                    );
-
+                    const token = await grecaptcha.getResponse();
+                    if (!token) {
+                        status.textContent = 'Please complete the reCAPTCHA.';
+                        return;
+                    }
                     const formData = new FormData(form);
                     const data = {
                         ...Object.fromEntries(formData.entries()),
-                        token: token,
-                        action: 'contact_form'
+                        token: token
                     };
 
                     const res = await fetch('https://4d2ilhlzy0.execute-api.us-east-1.amazonaws.com/contact', {

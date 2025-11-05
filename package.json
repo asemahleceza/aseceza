@@ -9,7 +9,8 @@
         "lint:html": "npx htmllint 'src/**/*.html' --config .htmllintrc",
         "format": "prettier --write '**/*.{js,html,css,json,md}' --config .prettierrc",
         "test": "echo \"Error: no test specified\" && exit 0",
-        "build": "cp -r src/* dist/ || true"
+        "clean": "rimraf dist",
+        "build": "npm run clean && cpx \"src/**/*\" dist/"
     },
     "repository": {
         "type": "git",

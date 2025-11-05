@@ -102,10 +102,19 @@ graph TD
 
 ## CI/CD Pipeline (GitHub Actions)
 
-Automated deployments are triggered on each push to main.
-The pipeline runs quality checks ( linting, formatting, build).
+Automated deployments are triggered on each push to main with two events, quality checks and deployment.
 
-The pipeline syncs files to S3 and invalidates CloudFront caches.
+**Quality Checks (Linting and Formatting):**
+
+- ESLint for JavaScript (`src/**/*.js`)
+- HTMLHint/htmllint for HTML (`src/**/*.html`)
+- Prettier for consistent formatting across JS, HTML, CSS, JSON, and Markdown
+
+**Build & Deployment:**
+- `dist/` folder is generated from `src/`
+- Uses `rimraf` to clean previous builds
+- `cpx` to copy files from `src/` to `dist/`
+- Deployment to AWS S3 and Cloudfront invalidation.
 
 ## Serverless Contact Form (Lambda + API Gateway)
 

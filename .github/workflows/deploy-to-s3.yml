@@ -39,9 +39,6 @@ jobs:
       - name: Run prettier check
         run: npx prettier --check "**/*.{js,html,css,json,md}"
 
-      - name: Build project
-        run: 
-          npm run build
   deploy:
     runs-on: ubuntu-latest
     needs: quality-check

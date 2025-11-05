@@ -73,9 +73,10 @@
                     API Gateway endpoint which triggers a Python Lambda. The
                     Lambda publishes the message to an SNS topic which delivers
                     email notifications. Deployments are fully automated with
-                    GitHub Actions: on push the workflow builds, syncs files to
-                    S3, and invalidates CloudFront using a minimal set of
-                    secrets stored in GitHub Secrets.
+                    GitHub Actions: on push the workflow performs quality
+                    checks, builds, syncs files to S3, and invalidates
+                    CloudFront using a minimal set of secrets stored in GitHub
+                    Secrets.
                 </p>
             </section>
 
@@ -97,6 +98,9 @@
                     <li>
                         Stored secrets in GitHub Secrets, never committing them
                         to the repo.
+                    </li>
+                    <li>
+                        Uses npm scripts to standardize build and linting tasks.
                     </li>
                 </ul>
             </section>

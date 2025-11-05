@@ -1,2 +1,7 @@
 .git/
 .bash_history
+nodes_modules/
+.DS_Store
+.vscode/
+.env
+dist/

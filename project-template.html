@@ -1,74 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project | Aseintech</title>
     <script>
-        const theme = localStorage.getItem('theme');
-        if (theme === 'light') document.documentElement.classList.add('light-mode');
+      const theme = localStorage.getItem("theme");
+      if (theme === "light")
+        document.documentElement.classList.add("light-mode");
     </script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="/js/theme.js" defer></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header>
-        <nav>
-            <div class="logo">Aseintech</div>
-            <ul class="nav-links">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle">☀️</button>
-        </nav>
+      <nav>
+        <div class="logo">Aseintech</div>
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle">☀️</button>
+      </nav>
     </header>
 
     <main class="project-detail">
-        <h1>Project Title</h1>
-        <p class="subtitle">A short one-liner that sums up the project’s purpose.</p>
+      <h1>Project Title</h1>
+      <p class="subtitle">
+        A short one-liner that sums up the project’s purpose.
+      </p>
 
-        <div class="project-meta">
-            <p><strong>Tech Stack:</strong> Docker, Kubernetes, AWS, Java</p>
-            <p><strong>Status:</strong> Completed / In Progress</p>
-        </div>
+      <div class="project-meta">
+        <p><strong>Tech Stack:</strong> Docker, Kubernetes, AWS, Java</p>
+        <p><strong>Status:</strong> Completed / In Progress</p>
+      </div>
 
-        <div class="project-img">
-            <img src="project-screenshot.jpg" alt="Project Screenshot">
-        </div>
+      <div class="project-img">
+        <img src="project-screenshot.jpg" alt="Project Screenshot" />
+      </div>
 
-        <section class="project-description">
-            <h2>Description</h2>
-            <p>
-                This project demonstrates infrastructure automation using Docker & Kubernetes.
-                It includes a full CI/CD pipeline with GitHub Actions and deploys on AWS for scalability.
-                Designed to be efficient, minimal, and production-ready.
-            </p>
-        </section>
+      <section class="project-description">
+        <h2>Description</h2>
+        <p>
+          This project demonstrates infrastructure automation using Docker &
+          Kubernetes. It includes a full CI/CD pipeline with GitHub Actions and
+          deploys on AWS for scalability. Designed to be efficient, minimal, and
+          production-ready.
+        </p>
+      </section>
 
-        <section class="project-links">
-            <h2>Links</h2>
-            <a href="https://github.com/yourgithub/project" class="btn">GitHub Repo</a>
-            <a href="https://your-live-demo-link.com" class="btn">Live Demo</a>
-            <a href="index.html#projects" class="btn">⬅ Back to Projects</a>
-        </section>
+      <section class="project-links">
+        <h2>Links</h2>
+        <a href="https://github.com/yourgithub/project" class="btn"
+          >GitHub Repo</a
+        >
+        <a href="https://your-live-demo-link.com" class="btn">Live Demo</a>
+        <a href="index.html#projects" class="btn">⬅ Back to Projects</a>
+      </section>
     </main>
 
     <footer>
-        <p>© 2025 Aseintech</p>
+      <p>© 2025 Aseintech</p>
     </footer>
 
     <script>
-        const toggle = document.getElementById('theme-toggle');
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            toggle.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
-        });
+      const toggle = document.getElementById("theme-toggle");
+      toggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        toggle.textContent = document.body.classList.contains("light-mode")
+          ? "🌙"
+          : "☀️";
+      });
     </script>
-</body>
-
+  </body>
 </html>

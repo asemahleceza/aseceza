@@ -9,6 +9,7 @@ Deployed on **AWS S3** with **Route53**, **CloudFront**, and **GitHub Actions CI
 ## Overview
 
 This project demonstrates:
+
 - **Serverless Architecture** with AWS
 - **CI/CD automation** via GitHub Actions
 - **Secure API Gateway + Lambda Integration**
@@ -17,6 +18,7 @@ This project demonstrates:
 ---
 
 ## Architecture
+
 ```mermaid
 graph TD
     %% ===== USER & FRONTEND =====
@@ -74,16 +76,18 @@ graph TD
 ## Tech Stack
 
 ### Languages:
+
 - HTML
-- CSS 
-- JavaScript 
+- CSS
+- JavaScript
 - Python
 
 ### AWS Services:
+
 - S3
-- Lambda 
-- API Gateway 
-- SNS - CloudFront 
+- Lambda
+- API Gateway
+- SNS - CloudFront
 - Route53
 
 ### GCP Services
@@ -91,13 +95,16 @@ graph TD
 - Google Recaptcha v2
 
 ### DevOps Tools:
-- GitHub Actions 
-- AWS CLI 
+
+- GitHub Actions
+- AWS CLI
 - Boto3
 
 ## CI/CD Pipeline (GitHub Actions)
 
 Automated deployments are triggered on each push to main.
+The pipeline runs quality checks ( linting, formatting, build).
+
 The pipeline syncs files to S3 and invalidates CloudFront caches.
 
 ## Serverless Contact Form (Lambda + API Gateway)

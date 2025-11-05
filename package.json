@@ -1,0 +1,34 @@
+{
+  "name": "aseceza",
+  "version": "1.0.0",
+  "description": "A fully automated, serverless portfolio website built to showcase my projects, cloud architecture skills, and DevOps automation practices.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint:js": "eslint '**/*.js'",
+    "lint:html": "htmllint '**/*.html'",
+    "format": "prettier --write '**/*.{js,html,css,json,md}'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cp -r src/* dist/ || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asemahleceza/aseceza.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asemahleceza/aseceza/issues"
+  },
+  "homepage": "https://github.com/asemahleceza/aseceza#readme",
+  "dependencies": {
+    "htmllint": "^0.8.0",
+    "prettier": "^3.6.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0"
+  }
+}

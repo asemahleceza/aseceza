@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project | Aseintech</title>
+    <script>
+      const theme = localStorage.getItem("theme");
+      if (theme === "light")
+        document.documentElement.classList.add("light-mode");
+    </script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/theme.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Aseintech</div>
+        <ul class="nav-links">
+          <li><a href="./index.html#about">About</a></li>
+          <li><a href="./index.html#skills">Skills</a></li>
+          <li><a href="./index.html#projects">Projects</a></li>
+          <li><a href="./index.html#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle">☀️</button>
+      </nav>
+    </header>
+
+    <main class="project-detail">
+      <h1>Alpine Linux Home Lab</h1>
+      <p class="subtitle">
+        A self-hosted, minimal, and fully automated homelab for learning and
+        experimentation.
+      </p>
+
+      <div class="project-meta">
+        <p>
+          <strong>Tech Stack:</strong> Alpine Linux, Docker, Node Exporter,
+          Prometheus, Grafana, Git, Cron, OpenRC
+        </p>
+        <p><strong>Status:</strong> In Progress / Ongoing</p>
+      </div>
+
+      <div class="project-img">
+        <img
+          src="./images/projects/homelab-screenshot.jpg"
+          alt="Home Lab Dashboard Screenshot"
+        />
+      </div>
+
+      <section class="project-description">
+        <h2>Description</h2>
+        <p>
+          This home lab project is built on <strong>Alpine Linux</strong> for a
+          lightweight and efficient base. Core monitoring is handled using
+          <strong>Prometheus</strong> and <strong>Grafana</strong>, with system
+          metrics collected via <strong>Node Exporter</strong>. Services are
+          orchestrated using <strong>OpenRC</strong> and automated tasks run via
+          <strong>Cron</strong>.
+        </p>
+        <p>The lab demonstrates full <strong>DevOps practices</strong>:</p>
+        <ul>
+          <li>Automated service deployment and monitoring</li>
+          <li>
+            Infrastructure as Code (IaC) with scripts for provisioning,
+            configuration, and system updates
+          </li>
+          <li>Version-controlled configurations using Git</li>
+          <li>Background process management and startup optimization</li>
+        </ul>
+        <p>
+          Every component is designed to be minimal, maintainable, and
+          observable:
+        </p>
+        <ul>
+          <li>
+            <strong>Prometheus:</strong> Scrapes metrics from Node Exporter and
+            other endpoints.
+          </li>
+          <li>
+            <strong>Grafana:</strong> Visualizes metrics, trends, and alerts.
+          </li>
+          <li>
+            <strong>Node Exporter:</strong> Collects CPU, memory, disk, and
+            network metrics from the host.
+          </li>
+          <li>
+            <strong>Docker:</strong> Runs lightweight containers for
+            experimental apps.
+          </li>
+          <li>
+            <strong>K3s:</strong> A light weight version of Kubernetes (K8s) for
+            resource constrained environments.
+          </li>
+          <li>
+            <strong>Cron & OpenRC:</strong> Automates routine maintenance and
+            ensures services start correctly after reboot.
+          </li>
+        </ul>
+        <p>
+          This project serves both as a personal playground for DevOps
+          experimentation and a showcase of applying modern operational best
+          practices to a compact, real-world environment.
+        </p>
+      </section>
+
+      <section class="project-links">
+        <h2>Links</h2>
+        <a href="https://github.com/asemahleceza/homelab-config" class="btn"
+          >GitHub Repo</a
+        >
+        <a href="./index.html#projects" class="btn">⬅ Back to Projects</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Aseintech</p>
+    </footer>
+  </body>
+</html>

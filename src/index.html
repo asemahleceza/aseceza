@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aseintech | Portfolio</title>
+        <script>
+            const theme = localStorage.getItem("theme");
+            if (theme === "light")
+                document.documentElement.classList.add("light-mode");
+        </script>
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="./js/theme.js" defer></script>
+        <script
+            src="https://www.google.com/recaptcha/api.js"
+            async
+            defer
+        ></script>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <div class="logo">Aseintech</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button id="theme-toggle">☀️</button>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="dp-container">
+                <img
+                    src="./images/ase-display-picture.jpeg"
+                    alt="Ase Display Picture"
+                    class="dp"
+                />
+            </div>
+            <div class="hero-content">
+                <h2>
+                    Hi, I’m
+                    <span>Ase</span>
+                </h2>
+                <p class="tagline">
+                    Building reliable systems with cloud and automation.
+                </p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Hello there! I’m Ase, a junior software engineer specializing in
+                infrastructure, DevOps, and cloud technologies. With a strong
+                computer science foundation and hands-on experience in
+                Kubernetes, AWS, and hybrid hosting, I focus on building
+                reliable, efficient systems through automation and modern
+                cloud-native practices.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>My Skills</h2>
+            <ul class="skills-list">
+                <li>
+                    <b>Cloud:</b>
+                    AWS
+                </li>
+                <li>
+                    <b>Config Management:</b>
+                    Ansible
+                </li>
+                <li>
+                    <b>Containers:</b>
+                    Docker, Kubernetes
+                </li>
+                <li>
+                    <b>CI/CD:</b>
+                    GitHub Actions, AWS CodePipeline
+                </li>
+                <li>
+                    <b>Monitoring:</b>
+                    Prometheus, Grafana
+                </li>
+                <li>
+                    <b>Languages:</b>
+                    Bash, Java, C#
+                </li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>My Homelab setup</h3>
+                    <p>
+                        A minimal homelab setup for learning and experimentation
+                    </p>
+                    <a href="./homelab-project.html" class="btn">
+                        View Project
+                    </a>
+                </div>
+                <div class="project-card">
+                    <h3>Static website portfolio</h3>
+                    <p>
+                        A small project focused on web-hosting, cloud
+                        engineering, reliability and scaling systems
+                    </p>
+                    <a href="./static-website-project.html" class="btn">
+                        View Project
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Let’s Connect</h2>
+            <p>
+                Reach out for collaboration or discussions on infrastructure and
+                automation.
+            </p>
+            <div class="contact-links">
+                <a href="https://linkedin.com/in/ase-ceza" class="btn">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/asemahleceza" class="btn">GitHub</a>
+            </div>
+        </section>
+        <section id="email">
+            <h2>Send an email</h2>
+            <form id="contactForm">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                />
+                <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+                <div
+                    class="g-recaptcha"
+                    data-sitekey="6LfH_gEsAAAAAEuJuejUyR6NGnVIZKY7a7shJNKU"
+                ></div>
+                <button type="submit">Send</button>
+            </form>
+
+            <div id="status"></div>
+
+            <script>
+                const form = document.getElementById("contactForm");
+                const status = document.getElementById("status");
+                form.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    status.textContent = "Submitting...";
+
+                    try {
+                        const token = await grecaptcha.getResponse();
+                        if (!token) {
+                            status.textContent =
+                                "Please complete the reCAPTCHA.";
+                            return;
+                        }
+                        const formData = new FormData(form);
+                        const data = {
+                            ...Object.fromEntries(formData.entries()),
+                            token: token,
+                        };
+
+                        const res = await fetch(
+                            "https://4d2ilhlzy0.execute-api.us-east-1.amazonaws.com/contact",
+                            {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(data),
+                            },
+                        );
+
+                        const result = await res.json();
+
+                        contactFormFailureResponse =
+                            "Something went wrong while sending your message" +
+                            "\n Please try again later or reach out via LinkedIn instead.";
+
+                        if (res.ok) {
+                            status.textContent =
+                                result.message || "Message sent successfully!";
+                            form.reset();
+                        } else {
+                            status.textContent =
+                                result.error || contactFormFailureResponse;
+                        }
+                    } catch (err) {
+                        console.error("Error submitting form:", err);
+                        status.textContent = "Error sending message.";
+                    }
+                });
+            </script>
+        </section>
+
+        <footer>
+            <p>© 2025 Aseintech</p>
+        </footer>
+    </body>
+</html>

@@ -34,7 +34,7 @@ jobs:
         run: npm test
 
       - name: Run htmlint
-        run: npx htmllint "**/*.html"
+        run: npm run lint:html
 
       - name: Run prettier check
         run: npx prettier --check "**/*.{js,html,css,json,md}"

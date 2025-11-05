@@ -23,7 +23,6 @@
     "spec-char-escape": true,
     "text-ignore-regex": false,
     "tag-bans": [
-        "style",
         "i"
     ],
     "tag-close": true,

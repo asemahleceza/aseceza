@@ -1,5 +1,5 @@
 {
-    "plugins": [],  // npm modules to load
+    "plugins": [],
 
     "maxerr": false,
     "raw-ignore-regex": false,
@@ -26,7 +26,7 @@
         "i"
     ],
     "tag-close": true,
-    "tag-name-lowercase": true,
+    "tag-name-lowercase": false,
     "tag-name-match": true,
     "tag-self-close": false,
     "doctype-first": false,

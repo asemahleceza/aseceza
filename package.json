@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "lint:js": "eslint '**/*.js'",
-        "lint:html": "npx htmllint 'src/**/*.html'",
+        "lint:html": "npx htmllint 'src/**/*.html' --config .htmllintrc",
         "format": "prettier --write '**/*.{js,html,css,json,md}' --config .prettierrc",
         "test": "echo \"Error: no test specified\" && exit 0",
         "build": "cp -r src/* dist/ || true"

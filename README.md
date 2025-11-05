@@ -111,6 +111,7 @@ Automated deployments are triggered on each push to main with two events, qualit
 - Prettier for consistent formatting across JS, HTML, CSS, JSON, and Markdown
 
 **Build & Deployment:**
+
 - `dist/` folder is generated from `src/`
 - Uses `rimraf` to clean previous builds
 - `cpx` to copy files from `src/` to `dist/`

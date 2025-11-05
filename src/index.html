@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Aseintech | Portfolio</title>
+        <title>Aseintech | Ponprtfolio</title>
         <script>
             const theme = localStorage.getItem("theme");
             if (theme === "light")
@@ -16,6 +16,7 @@
             async
             defer
         ></script>
+        <script src="./js/contact.js" defer></script>
     </head>
 
     <body>
@@ -160,56 +161,6 @@
             </form>
 
             <div id="status"></div>
-
-            <script>
-                const form = document.getElementById("contactForm");
-                const status = document.getElementById("status");
-                form.addEventListener("submit", async (e) => {
-                    e.preventDefault();
-                    status.textContent = "Submitting...";
-
-                    try {
-                        const token = await grecaptcha.getResponse();
-                        if (!token) {
-                            status.textContent =
-                                "Please complete the reCAPTCHA.";
-                            return;
-                        }
-                        const formData = new FormData(form);
-                        const data = {
-                            ...Object.fromEntries(formData.entries()),
-                            token: token,
-                        };
-
-                        const res = await fetch(
-                            "https://4d2ilhlzy0.execute-api.us-east-1.amazonaws.com/contact",
-                            {
-                                method: "POST",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify(data),
-                            },
-                        );
-
-                        const result = await res.json();
-
-                        contactFormFailureResponse =
-                            "Something went wrong while sending your message" +
-                            "\n Please try again later or reach out via LinkedIn instead.";
-
-                        if (res.ok) {
-                            status.textContent =
-                                result.message || "Message sent successfully!";
-                            form.reset();
-                        } else {
-                            status.textContent =
-                                result.error || contactFormFailureResponse;
-                        }
-                    } catch (err) {
-                        console.error("Error submitting form:", err);
-                        status.textContent = "Error sending message.";
-                    }
-                });
-            </script>
         </section>
 
         <footer>

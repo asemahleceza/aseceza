@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Run eslint
-        run: npx eslint "**/*.js" || echo "no JS files to lint  "
+        run: npm run lint:js
 
       - name: Run tests
         run: npm test
@@ -40,7 +40,9 @@ jobs:
         run: npx prettier --check "**/*.{js,html,css,json,md}"
 
       - name: Build project
-        run: npm run build
+        run: |
+          npm run build
+          ls -la dist/
 
   deploy:
     runs-on: ubuntu-latest
